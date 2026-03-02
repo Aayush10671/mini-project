@@ -1,6 +1,16 @@
 # local package
 -e .
-
+pandas
+numpy
+seaborn
+matplotlib
+scikit-learn
+dill 
+xgboost
+flask
+pickle
+yaml
+dvc
 # external requirements
 click
 Sphinx
