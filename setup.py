@@ -1,10 +1,31 @@
-from setuptools import find_packages, setup
+from setuptools import setup, find_packages
+from typing import List
+
+HYPHEN_E_DOT = "-e ."
+
+
+def get_requirements(file_path: str) -> List[str]:
+    """
+    Returns a list of requirements from requirements.txt
+    """
+
+    requirements: List[str] = []
+
+    with open(file_path, "r") as file:
+        requirements = file.readlines()
+        requirements = [req.strip() for req in requirements]
+
+    if HYPHEN_E_DOT in requirements:
+        requirements.remove(HYPHEN_E_DOT)
+
+    return requirements
+
 
 setup(
-    name='src',
+    name="mini_project",
+    version="0.0.1",
+    author="Aayush Shah",
+    author_email="aayush0131@gmail.com",
     packages=find_packages(),
-    version='0.1.0',
-    description='mini-project to predeict the student performance in the next exam',
-    author='Aayush_shah',
-    license='',
+    install_requires=get_requirements("requirements.txt"),
 )

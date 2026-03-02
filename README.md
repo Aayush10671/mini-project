@@ -1,7 +1,7 @@
 mini-project
 ==============================
 
-mini-project to predeict the student performance in the next exam
+mini-project to predeict the student performance in the final exam
 
 Project Organization
 ------------
