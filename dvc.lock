@@ -1,0 +1,134 @@
+schema: '2.0'
+stages:
+  data_ingestion:
+    cmd: python src/data/data_ingestion.py
+    deps:
+    - path: src/data/data_ingestion.py
+      hash: md5
+      md5: 2abccc8a95f43a95eacc4057f7565bf3
+      size: 3216
+    params:
+      params.yaml:
+        data_ingestion.test_size: 0.2
+    outs:
+    - path: data/raw
+      hash: md5
+      md5: dd65fdaa30d1058fe5b40e48683ac3cd.dir
+      size: 1223219
+      nfiles: 2
+  data_preprocessing:
+    cmd: python src/data/data_preprocessing.py
+    deps:
+    - path: data/raw/test.csv
+      hash: md5
+      md5: 498b8f931d8e9f911e000fb2f0ecd70d
+      size: 243838
+    - path: data/raw/train.csv
+      hash: md5
+      md5: 9608e3180c891018bb63faf437691725
+      size: 979381
+    - path: src/data/data_preprocessing.py
+      hash: md5
+      md5: a760e4304879a9ffe62a0a5fb9346e39
+      size: 2544
+    outs:
+    - path: data/interim
+      hash: md5
+      md5: ec34b55cfe3df39644fbf907b255ec37.dir
+      size: 1309574
+      nfiles: 2
+  feature_engineering:
+    cmd: python src/features/feature_engineering.py
+    deps:
+    - path: data/interim/test_processed.csv
+      hash: md5
+      md5: 2b9ca10240e29e3297ff1fae81db03e1
+      size: 261254
+    - path: data/interim/train_processed.csv
+      hash: md5
+      md5: c5f16e01eb850428f13ef27272809918
+      size: 1048320
+    - path: src/features/feature_engineering.py
+      hash: md5
+      md5: 31e7063a26cb7e96b92a994068f4d86b
+      size: 2715
+    outs:
+    - path: data/processed
+      hash: md5
+      md5: bb568c8743ae588990ee6625bc3e0f23.dir
+      size: 1309574
+      nfiles: 2
+  model_training:
+    cmd: python src/models/model.py
+    deps:
+    - path: data/processed/train_engineered.csv
+      hash: md5
+      md5: c5f16e01eb850428f13ef27272809918
+      size: 1048320
+    - path: src/models/model.py
+      hash: md5
+      md5: 69c9055465149dda3838f4923343a20e
+      size: 3128
+    params:
+      params.yaml:
+        model_training:
+          param_distributions:
+            n_estimators:
+            - 100
+            - 200
+            - 300
+            max_depth:
+            - 3
+            - 5
+            - 7
+            - 9
+            learning_rate:
+            - 0.01
+            - 0.05
+            - 0.1
+            subsample:
+            - 0.7
+            - 0.8
+            - 1.0
+            colsample_bytree:
+            - 0.7
+            - 0.8
+            - 1.0
+            gamma:
+            - 0
+            - 0.1
+            - 0.2
+            reg_alpha:
+            - 0
+            - 0.01
+            - 0.1
+            reg_lambda:
+            - 1
+            - 1.5
+            - 2
+    outs:
+    - path: models/model.pkl
+      hash: md5
+      md5: 6ff732200ab8680e0ea61c3aab88d63c
+      size: 355253
+  model_evaluation:
+    cmd: python src/models/model_evaluation.py
+    deps:
+    - path: data/processed/test_engineered.csv
+      hash: md5
+      md5: 2b9ca10240e29e3297ff1fae81db03e1
+      size: 261254
+    - path: models/model.pkl
+      hash: md5
+      md5: 6ff732200ab8680e0ea61c3aab88d63c
+      size: 355253
+    - path: src/models/model_evaluation.py
+      hash: md5
+      md5: 5e1a45be3f36febbd22744b09f04886f
+      size: 2585
+    outs:
+    - path: reports
+      hash: md5
+      md5: 919aa94f337c45c47248c91db8bf79db.dir
+      size: 80
+      nfiles: 1
