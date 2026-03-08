@@ -1,6 +1,6 @@
-myenv
-reports
-models
+# myenv
+# reports
+# models
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

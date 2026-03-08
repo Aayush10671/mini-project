@@ -1,0 +1,42 @@
+artifact_path: file:C:/Users/KIIT0001/Desktop/miP/student-preformance-predection/mlruns/757149736414540813/models/m-4a5c1b9e911243f7a5032859153ce761/artifacts
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.13.3
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.7.0
+    skops_trusted_types: null
+is_signature_from_type_hint: false
+mlflow_version: 3.10.0
+model_id: m-4a5c1b9e911243f7a5032859153ce761
+model_size_bytes: 355372
+model_uuid: m-4a5c1b9e911243f7a5032859153ce761
+prompts: null
+run_id: 79739d1d205f4b25b46309830b0cbecb
+signature:
+  inputs: '[{"type": "long", "name": "Difficulty_Level", "required": true}, {"type":
+    "double", "name": "Attendance (%)", "required": false}, {"type": "double", "name":
+    "Midterm_Score", "required": true}, {"type": "double", "name": "Assignments_Avg",
+    "required": true}, {"type": "double", "name": "Quizzes_Avg", "required": true},
+    {"type": "double", "name": "Participation_Score", "required": false}, {"type":
+    "double", "name": "Projects_Score", "required": true}, {"type": "double", "name":
+    "Study_Hours_per_Week", "required": false}, {"type": "long", "name": "Parent_Education_Level",
+    "required": true}, {"type": "long", "name": "Family_Income_Level", "required":
+    true}, {"type": "double", "name": "Stress_Level", "required": true}, {"type":
+    "double", "name": "Sleep_Hours_per_Night", "required": true}, {"type": "double",
+    "name": "Branch_Civil", "required": true}, {"type": "double", "name": "Branch_ECE",
+    "required": true}, {"type": "double", "name": "Branch_EEE", "required": true},
+    {"type": "double", "name": "Branch_ME", "required": true}, {"type": "double",
+    "name": "Internet_Access_at_Home_Yes", "required": true}]'
+  outputs: '[{"type": "tensor", "tensor-spec": {"dtype": "float32", "shape": [-1]}}]'
+  params: null
+type_hint_from_example: false
+utc_time_created: '2026-03-08 08:26:39.393925'

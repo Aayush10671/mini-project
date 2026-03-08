@@ -1,0 +1,10 @@
+artifact_location: file:C:/Users/KIIT0001/Desktop/miP/student-preformance-predection/mlruns/757149736414540813/models/m-4a5c1b9e911243f7a5032859153ce761/artifacts
+creation_timestamp: 1772958399311
+experiment_id: '757149736414540813'
+last_updated_timestamp: 1772958407065
+model_id: m-4a5c1b9e911243f7a5032859153ce761
+model_type: null
+name: evaluated_model
+source_run_id: 79739d1d205f4b25b46309830b0cbecb
+status: 2
+status_message: null

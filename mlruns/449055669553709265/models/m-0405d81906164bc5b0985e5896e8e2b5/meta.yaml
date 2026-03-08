@@ -1,0 +1,10 @@
+artifact_location: file:C:/Users/KIIT0001/Desktop/miP/student-preformance-predection/mlruns/449055669553709265/models/m-0405d81906164bc5b0985e5896e8e2b5/artifacts
+creation_timestamp: 1772957854350
+experiment_id: '449055669553709265'
+last_updated_timestamp: 1772957874763
+model_id: m-0405d81906164bc5b0985e5896e8e2b5
+model_type: null
+name: xgboost_model
+source_run_id: 276a7311343b44c0a5975b804697cd16
+status: 2
+status_message: null
