@@ -1,0 +1,14 @@
+artifact_uri: file:C:/Users/KIIT0001/Desktop/miP/student-preformance-predection/mlruns/449055669553709265/12b55569e90e435ab55ee8410bdb8c3d/artifacts
+end_time: 1772958378303
+entry_point_name: ''
+experiment_id: '449055669553709265'
+lifecycle_stage: active
+run_id: 12b55569e90e435ab55ee8410bdb8c3d
+run_name: suave-bear-231
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1772958378160
+status: 3
+tags: []
+user_id: KIIT0001

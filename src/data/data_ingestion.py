@@ -4,6 +4,7 @@ import os
 from sklearn.model_selection import train_test_split
 import yaml
 import logging
+import mlflow
 
 logger = logging.getLogger('data_ingestion')
 logger.setLevel(logging.DEBUG)
@@ -76,13 +77,24 @@ def main():
         params = load_params(params_path='params.yaml')
         test_size = params['data_ingestion']['test_size']
         
-        df = load_data(data_url='notebooks/students_performance_data.csv')
+        mlflow.set_experiment("data_ingestion_pipeline")
         
-        final_df = preprocess_data(df)
+        with mlflow.start_run():
+            mlflow.log_param("test_size", test_size)
         
-        train_data, test_data = train_test_split(final_df, test_size=test_size, random_state=42)
+            df = load_data(data_url='notebooks/students_performance_data.csv')
+            mlflow.log_metric("dataset_rows", df.shape[0])
+            mlflow.log_metric("dataset_columns", df.shape[1])
         
-        save_data(train_data, test_data, data_path='data')
+            final_df = preprocess_data(df)
+            mlflow.log_metric("rows_after_preprocess", final_df.shape[0])
+        
+            train_data, test_data = train_test_split(final_df, test_size=test_size, random_state=42)
+        
+            mlflow.log_metric("train_rows", train_data.shape[0])
+            mlflow.log_metric("test_rows", test_data.shape[0])
+        
+            save_data(train_data, test_data, data_path='data')
         
     except Exception as e:
         logger.error('Failed to complete the data ingestion process: %s', e)

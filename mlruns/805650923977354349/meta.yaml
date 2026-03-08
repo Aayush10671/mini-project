@@ -1,0 +1,7 @@
+artifact_location: file:///C:/Users/KIIT0001/Desktop/miP/student-preformance-predection/mlruns/805650923977354349
+creation_time: 1772958291513
+experiment_id: '805650923977354349'
+last_update_time: 1772958291513
+lifecycle_stage: active
+name: data_preprocessing_pipeline
+workspace: default

@@ -1,0 +1,14 @@
+artifact_uri: file:C:/Users/KIIT0001/Desktop/miP/student-preformance-predection/mlruns/449055669553709265/ff2ad5ca054e4f529d71b22c5d4f4550/artifacts
+end_time: 1772957849752
+entry_point_name: ''
+experiment_id: '449055669553709265'
+lifecycle_stage: active
+run_id: ff2ad5ca054e4f529d71b22c5d4f4550
+run_name: unique-toad-281
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1772957849649
+status: 3
+tags: []
+user_id: KIIT0001

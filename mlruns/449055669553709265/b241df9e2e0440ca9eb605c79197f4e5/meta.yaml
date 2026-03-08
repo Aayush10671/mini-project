@@ -1,0 +1,14 @@
+artifact_uri: file:C:/Users/KIIT0001/Desktop/miP/student-preformance-predection/mlruns/449055669553709265/b241df9e2e0440ca9eb605c79197f4e5/artifacts
+end_time: 1772958375221
+entry_point_name: ''
+experiment_id: '449055669553709265'
+lifecycle_stage: active
+run_id: b241df9e2e0440ca9eb605c79197f4e5
+run_name: incongruous-cat-235
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1772958375125
+status: 3
+tags: []
+user_id: KIIT0001

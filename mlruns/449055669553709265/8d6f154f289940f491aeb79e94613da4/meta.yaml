@@ -1,0 +1,14 @@
+artifact_uri: file:C:/Users/KIIT0001/Desktop/miP/student-preformance-predection/mlruns/449055669553709265/8d6f154f289940f491aeb79e94613da4/artifacts
+end_time: 1772957851119
+entry_point_name: ''
+experiment_id: '449055669553709265'
+lifecycle_stage: active
+run_id: 8d6f154f289940f491aeb79e94613da4
+run_name: casual-crab-453
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1772957851020
+status: 3
+tags: []
+user_id: KIIT0001

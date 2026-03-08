@@ -1,0 +1,21 @@
+digest: 46d4f388
+name: dataset
+profile: '{"num_rows": 2000, "num_elements": 36000}'
+schema: '{"mlflow_colspec": [{"type": "long", "name": "Difficulty_Level", "required":
+  true}, {"type": "double", "name": "Attendance (%)", "required": false}, {"type":
+  "double", "name": "Midterm_Score", "required": true}, {"type": "double", "name":
+  "Assignments_Avg", "required": true}, {"type": "double", "name": "Quizzes_Avg",
+  "required": true}, {"type": "double", "name": "Participation_Score", "required":
+  false}, {"type": "double", "name": "Projects_Score", "required": true}, {"type":
+  "double", "name": "Study_Hours_per_Week", "required": false}, {"type": "long", "name":
+  "Parent_Education_Level", "required": true}, {"type": "long", "name": "Family_Income_Level",
+  "required": true}, {"type": "double", "name": "Stress_Level", "required": true},
+  {"type": "double", "name": "Sleep_Hours_per_Night", "required": true}, {"type":
+  "boolean", "name": "Branch_Civil", "required": true}, {"type": "boolean", "name":
+  "Branch_ECE", "required": true}, {"type": "boolean", "name": "Branch_EEE", "required":
+  true}, {"type": "boolean", "name": "Branch_ME", "required": true}, {"type": "boolean",
+  "name": "Internet_Access_at_Home_Yes", "required": true}, {"type": "double", "name":
+  "Final_Score", "required": true}]}'
+source: '{"tags": {"mlflow.user": "KIIT0001", "mlflow.source.name": "src/models/model_evaluation.py",
+  "mlflow.source.type": "LOCAL"}}'
+source_type: code

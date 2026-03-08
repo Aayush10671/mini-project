@@ -1,0 +1,14 @@
+artifact_uri: file:C:/Users/KIIT0001/Desktop/miP/student-preformance-predection/mlruns/449055669553709265/b8dcceb27d0841d69db57ce7e59fa9ae/artifacts
+end_time: 1772957852404
+entry_point_name: ''
+experiment_id: '449055669553709265'
+lifecycle_stage: active
+run_id: b8dcceb27d0841d69db57ce7e59fa9ae
+run_name: languid-chimp-981
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1772957852291
+status: 3
+tags: []
+user_id: KIIT0001

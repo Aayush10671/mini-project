@@ -1,0 +1,14 @@
+artifact_uri: file:C:/Users/KIIT0001/Desktop/miP/student-preformance-predection/mlruns/449055669553709265/2643bee4440545f3b716ecf4903a66a9/artifacts
+end_time: 1772957848105
+entry_point_name: ''
+experiment_id: '449055669553709265'
+lifecycle_stage: active
+run_id: 2643bee4440545f3b716ecf4903a66a9
+run_name: upset-shrew-959
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1772957847983
+status: 3
+tags: []
+user_id: KIIT0001

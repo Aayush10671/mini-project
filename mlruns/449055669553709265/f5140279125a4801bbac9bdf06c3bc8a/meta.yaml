@@ -1,0 +1,14 @@
+artifact_uri: file:C:/Users/KIIT0001/Desktop/miP/student-preformance-predection/mlruns/449055669553709265/f5140279125a4801bbac9bdf06c3bc8a/artifacts
+end_time: 1772958380269
+entry_point_name: ''
+experiment_id: '449055669553709265'
+lifecycle_stage: active
+run_id: f5140279125a4801bbac9bdf06c3bc8a
+run_name: learned-gnu-514
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1772958380138
+status: 3
+tags: []
+user_id: KIIT0001

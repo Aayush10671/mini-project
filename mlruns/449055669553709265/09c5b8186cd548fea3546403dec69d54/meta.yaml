@@ -1,0 +1,14 @@
+artifact_uri: file:C:/Users/KIIT0001/Desktop/miP/student-preformance-predection/mlruns/449055669553709265/09c5b8186cd548fea3546403dec69d54/artifacts
+end_time: 1772958379293
+entry_point_name: ''
+experiment_id: '449055669553709265'
+lifecycle_stage: active
+run_id: 09c5b8186cd548fea3546403dec69d54
+run_name: masked-robin-951
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1772958379229
+status: 3
+tags: []
+user_id: KIIT0001

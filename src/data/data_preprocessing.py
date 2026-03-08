@@ -2,7 +2,8 @@ import numpy as np
 import pandas as pd
 import os
 import logging
-from sklearn.preprocessing import LabelEncoder
+from sklearn.preprocessing import LabelEncoder, OneHotEncoder
+import mlflow
 
 logger = logging.getLogger('data_preprocessing')
 logger.setLevel(logging.DEBUG)
@@ -36,7 +37,13 @@ def preprocess_dataframe(df):
                 df[col] = le.fit_transform(df[col])
 
         categorical_cols = df.select_dtypes(include=['object']).columns
-        df = pd.get_dummies(df, columns=categorical_cols, drop_first=True)
+
+        if len(categorical_cols) > 0:
+            encoder = OneHotEncoder(drop='first', sparse_output=False, handle_unknown='ignore')
+            encoded = encoder.fit_transform(df[categorical_cols])
+            encoded_df = pd.DataFrame(encoded, columns=encoder.get_feature_names_out(categorical_cols))
+            encoded_df.index = df.index
+            df = pd.concat([df.drop(columns=categorical_cols), encoded_df], axis=1)
 
         logger.debug('Encoding completed')
         return df
@@ -65,14 +72,26 @@ def main():
     try:
         logger.debug("Starting data preprocessing...")
 
-        train_data = pd.read_csv('./data/raw/train.csv')
-        test_data = pd.read_csv('./data/raw/test.csv')
-        logger.debug('Data loaded successfully')
+        mlflow.set_experiment("data_preprocessing_pipeline")
 
-        train_processed_data = preprocess_dataframe(train_data)
-        test_processed_data = preprocess_dataframe(test_data)
+        with mlflow.start_run():
 
-        save_data(train_processed_data, test_processed_data, data_path='./data')
+            train_data = pd.read_csv('./data/raw/train.csv')
+            test_data = pd.read_csv('./data/raw/test.csv')
+            logger.debug('Data loaded successfully')
+
+            mlflow.log_metric("train_rows_before", train_data.shape[0])
+            mlflow.log_metric("test_rows_before", test_data.shape[0])
+
+            train_processed_data = preprocess_dataframe(train_data)
+            test_processed_data = preprocess_dataframe(test_data)
+
+            mlflow.log_metric("train_rows_after", train_processed_data.shape[0])
+            mlflow.log_metric("test_rows_after", test_processed_data.shape[0])
+            mlflow.log_metric("train_columns_after", train_processed_data.shape[1])
+            mlflow.log_metric("test_columns_after", test_processed_data.shape[1])
+
+            save_data(train_processed_data, test_processed_data, data_path='./data')
 
     except Exception as e:
         logger.error('Failed to complete the data preprocessing process: %s', e)

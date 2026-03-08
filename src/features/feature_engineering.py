@@ -2,6 +2,7 @@ import numpy as np
 import pandas as pd
 import os
 import logging
+import mlflow
 
 logger = logging.getLogger('feature_engineering')
 logger.setLevel(logging.DEBUG)
@@ -70,14 +71,26 @@ def main():
     try:
         logger.debug("Starting feature engineering...")
 
-        train_data = pd.read_csv('./data/interim/train_processed.csv')
-        test_data = pd.read_csv('./data/interim/test_processed.csv')
-        logger.debug('Data loaded successfully')
+        mlflow.set_experiment("feature_engineering_pipeline")
 
-        train_engineered = engineer_features(train_data)
-        test_engineered = engineer_features(test_data)
+        with mlflow.start_run():
 
-        save_data(train_engineered, test_engineered, data_path='./data')
+            train_data = pd.read_csv('./data/interim/train_processed.csv')
+            test_data = pd.read_csv('./data/interim/test_processed.csv')
+            logger.debug('Data loaded successfully')
+
+            mlflow.log_metric("train_rows_before_fe", train_data.shape[0])
+            mlflow.log_metric("test_rows_before_fe", test_data.shape[0])
+
+            train_engineered = engineer_features(train_data)
+            test_engineered = engineer_features(test_data)
+
+            mlflow.log_metric("train_rows_after_fe", train_engineered.shape[0])
+            mlflow.log_metric("test_rows_after_fe", test_engineered.shape[0])
+            mlflow.log_metric("train_columns_after_fe", train_engineered.shape[1])
+            mlflow.log_metric("test_columns_after_fe", test_engineered.shape[1])
+
+            save_data(train_engineered, test_engineered, data_path='./data')
 
     except Exception as e:
         logger.error('Failed to complete the feature engineering process: %s', e)
