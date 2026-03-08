@@ -4,6 +4,7 @@ import os
 import logging
 from sklearn.preprocessing import LabelEncoder, OneHotEncoder
 import mlflow
+import pickle
 
 logger = logging.getLogger('data_preprocessing')
 logger.setLevel(logging.DEBUG)
@@ -31,10 +32,22 @@ def preprocess_dataframe(df):
             'Family_Income_Level'
         ]
 
+        # for col in ordinal_cols:
+        #     if col in df.columns:
+        #         le = LabelEncoder()
+        #         df[col] = le.fit_transform(df[col])
+
+       
+
         for col in ordinal_cols:
             if col in df.columns:
                 le = LabelEncoder()
                 df[col] = le.fit_transform(df[col])
+
+                os.makedirs("encoders", exist_ok=True)
+                with open(f"models/{col}_label_encoder.pkl", "wb") as f:
+                    pickle.dump(le, f)
+                
 
         categorical_cols = df.select_dtypes(include=['object']).columns
 
